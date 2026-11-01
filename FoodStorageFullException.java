@@ -1,16 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package foodstorageapp;
 
 /**
+ * Thrown when a tray is added but the storage already holds 8 trays.
+ * Unchecked (extends RuntimeException), like FoodStorageEmptyException,
+ * so add() can simply throw it and the menu catches it.
  *
- * @author Power SHOP
+ * @author Group 124
  */
-public class FoodStorageFullException extends Exception {
+public class FoodStorageFullException extends RuntimeException {
 
-    public FoodStorageFullException(String string) {
+    private static final long serialVersionUID = 1L;
+
+    public FoodStorageFullException(String message) {
+        super(message);
     }
-    
 }
