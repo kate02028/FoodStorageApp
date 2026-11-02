@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package foodstorageapp;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * FoodStorageApp - menu-driven console application (contains main).
+ * Reads the user's choice, calls FoodStorage and Validator,
+ * and shows clear messages for every error.
+ *
+ * @author Group 124 - Tsolmon Jargalsaikhan, Tuguldur Azzaya, Khongorzul Oktyabri
+ */
 public class FoodStorageApp {
 
     public static final String APP_NAME = "Fast-Food Tray Storage System";
@@ -175,7 +178,7 @@ public class FoodStorageApp {
                 STORAGE.add(new FoodItem((String) d[0], (Double) d[1],
                         LocalDate.now().plusDays((Integer) d[2])));
                 added++;
-            } catch (IllegalArgumentException e) {
+            } catch (FoodStorageFullException | IllegalArgumentException e) {
                 System.out.println("  !! " + e.getMessage());
             }
         }
